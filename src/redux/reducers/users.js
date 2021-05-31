@@ -24,6 +24,23 @@ export default function users(state = initialState, action) {
         loading: false,
         error: action.message,
       }
+    case type.ADD_USER_REQUESTED:
+      return{
+        ...state,
+        loading: true,
+      }
+    case type.ADD_USER_SUCCESS:
+      return{
+        ...state,
+        loading: false,
+        users: action.users
+      }
+    case type.ADD_USER_FAILED:
+      return{
+        ...state,
+        loading: false,
+        error: action.message,
+      }
     default:
       return state
   }
