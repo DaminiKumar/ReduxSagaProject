@@ -55,7 +55,7 @@ const AddUserComponent = () => {
 
 						/>
 					</div>
-					<button type="submit">Submit</button>
+					<button type="submit" className="button mb-5">Submit</button>
 				</form>
 			</div>
     ) 

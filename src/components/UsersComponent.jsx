@@ -9,13 +9,13 @@ const Users = () => {
   const loading = useSelector(state => state.users.loading);
   const error = useSelector(state => state.users.error);
 
-
   useEffect(() => {
     dispatch(getUsers());
   }, [])
 
   return (
     <>
+    
       {users.loading && <p>Loading...</p>}
       {users.length === 0 && !loading && <p>No users available!</p>}
       {error && !loading && <p>{error}</p>}
