@@ -4,9 +4,17 @@ import {getUserById} from '../redux/actions/userById'
 import Card from './CardComponent';
 
 let dispatch;
+let users;
 const  ViewByUserId = () => {
 
-    dispatch = useDispatch();
+     dispatch = useDispatch();
+     users = useSelector(state => state.users.users);
+     console.log("UserList:", users);
+
+     if (!Array.isArray(users)) {
+        users = [];
+        console.log("Set user to blank array");
+    }
         
     return(
             <div className="userById">
@@ -30,5 +38,6 @@ function handleSubmit(event) {
     }
    dispatch(getUserById(id));
 }
+
 
 export default ViewByUserId;

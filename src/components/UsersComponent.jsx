@@ -15,8 +15,7 @@ const Users = () => {
 
   return (
     <>
-    
-      {users.loading && <p>Loading...</p>}
+    <center><h3>List of All users</h3></center>
       {users.length === 0 && !loading && <p>No users available!</p>}
       {error && !loading && <p>{error}</p>}
       {users.length > 0 && users.map((user) => (

@@ -44,6 +44,24 @@ export default function users(state = initialState, action) {
           error: action.message,
         }
 
+    case type.GET_SORTUSERS_REQUESTED:
+          return {
+            ...state,
+            loading: true,
+          }
+      case type.GET_SORTUSERS_SUCCESS:
+          return {
+            ...state,
+            loading: false,
+            users: action.users
+          }
+      case type.GET_SORTUSERS_FAILED:
+          return {
+            ...state,
+            loading: false,
+            error: action.message,
+          }
+
     /*
     case type.ADD_USER_REQUESTED:
       return{
