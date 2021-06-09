@@ -37,7 +37,6 @@ const ViewByUserId = () => {
 
 function renderTableData(users) {
     console.log("userList: ", users);
-    //const { id, userId, title, body } = user
     const id = users.id;
     console.log("id: ", id);
     const userId = users.userId;

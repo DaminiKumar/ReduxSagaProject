@@ -7,6 +7,7 @@ import AddUserComponent from './components/AddUserComponent';
 import ViewByUserId from './components/ViewByUserId';
 import SortByTitle from './components/SortByTitleComponent';
 import SortByBody from './components/SortByBodyComponent';
+import SortByUserId from './components/SortByUserIdComponent';
 const UsersComponent = lazy(() => import("./components/UsersComponent"));
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/sortUsersByBody">Sort Users By Body</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/sortUsersByUserId">Sort Users By User Id</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/viewById">Find Users</a>
@@ -55,9 +59,13 @@ function App() {
           <Route path="/sortUsersByBody">
             <SortByBody></SortByBody>
           </Route>
+          <Route path="/sortUsersByUserId">
+            <SortByUserId></SortByUserId>
+          </Route>
           <Route path="/">
             <Home />
           </Route>
+          
         </Switch>
       </div>
     </Router>
