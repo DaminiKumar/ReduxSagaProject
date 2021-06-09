@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { sortUsers } from '../redux/actions/sortUsers';
-import Card from './CardComponent';
 
-const SortUsers= () => {
+
+const SortByBody= () => {
   const dispatch = useDispatch();
   const users = useSelector(state => state.users.users);
   console.log("SortingUsers: ", users);
+
   React.useEffect(() => {
     Users()
 }, []);
@@ -21,11 +22,17 @@ if (!Array.isArray(users)) {
 }
 
 
-  const loading = useSelector(state => state.users.loading);
-  const error = useSelector(state => state.users.error);
+  const [sortType, setSortType] = useState('asc');
+  users.sort( (a, b) =>{
+
+    const isReversed = (sortType === 'asc') ? 1 : -1;
+    return isReversed * a.body.localeCompare(b.body);
+  })
 
   return (
     <div>
+        <button className="button" onClick={()=>setSortType('asc')}>Sort By Body in Ascending</button>
+        <button className="button" onClick={()=>setSortType('desc')}>Sort By Body in Descending </button>
 
 <table border="2">
                 <thead>
@@ -61,4 +68,4 @@ function renderTableData(users) {
   })
 };
 
-export default SortUsers;
+export default SortByBody;

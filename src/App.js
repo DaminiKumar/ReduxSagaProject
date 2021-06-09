@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import AddUserComponent from './components/AddUserComponent';
 import ViewByUserId from './components/ViewByUserId';
-import SortUsers from './components/SortingComponent';
+import SortByTitle from './components/SortByTitleComponent';
+import SortByBody from './components/SortByBodyComponent';
 const UsersComponent = lazy(() => import("./components/UsersComponent"));
 
 function App() {
@@ -22,7 +23,10 @@ function App() {
               <Link to="/users">All Users</Link>
             </li>
             <li>
-              <Link to="/sortUsers">Sort Users</Link>
+              <Link to="/sortUsersByTitle">Sort Users By Title</Link>
+            </li>
+            <li>
+              <Link to="/sortUsersByBody">Sort Users By Body</Link>
             </li>
             <li>
               <Link to="/viewById">User By Id</Link>
@@ -42,9 +46,12 @@ function App() {
           <Route path="/viewById">
             <ViewByUserId></ViewByUserId>
           </Route>
-          <Route path="/sortUsers">
-            <SortUsers></SortUsers>
+          <Route path="/sortUsersByTitle">
+            <SortByTitle></SortByTitle>
           </Route>
+         <Route path="/sortUsersByBody">
+            <SortByBody></SortByBody>
+          </Route> 
           <Route path="/">
             <Home />
           </Route>
