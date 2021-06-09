@@ -3,25 +3,25 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 
 function getApi(id) {
    console.log("Id in saga:", id);
-  return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: 'GET',
       headers: {
-          'Content-Type': 'application/json',
+         'Content-Type': 'application/json',
 
       }
-  }).then((data)=>{
-     data.json().then((resp)=>{
-        console.warn("resp",resp)
-     })
-  }).catch((error) => {throw error})
+   }).then((data) => {
+      data.json().then((resp) => {
+         console.warn("resp", resp)
+      })
+   }).catch((error) => { throw error })
 }
 
 function* fetchUsers(action) {
    try {
       const users = yield call(getApi, action.id);
-      yield put({type: 'GET_USERBYID_SUCCESS', users: users});
+      yield put({ type: 'GET_USERBYID_SUCCESS', users: users });
    } catch (e) {
-      yield put({type: 'GET_USERBYID_FAILED', message: e.message});
+      yield put({ type: 'GET_USERBYID_FAILED', message: e.message });
    }
 }
 

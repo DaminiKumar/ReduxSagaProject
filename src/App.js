@@ -14,33 +14,36 @@ function App() {
 
     <Router>
       <div>
-        <nav >
-          <ul>
-          <li>
-              <Link to="/">Home</Link>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li>
-              <Link to="/users">All Users</Link>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/users">All Users</a>
             </li>
-            <li>
-              <Link to="/sortUsersByTitle">Sort Users By Title</Link>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/sortUsersByTitle">Sort Users By Title</a>
             </li>
-            <li>
-              <Link to="/sortUsersByBody">Sort Users By Body</Link>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/sortUsersByBody">Sort Users By Body</a>
             </li>
-            <li>
-              <Link to="/viewById">User By Id</Link>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/viewById">Find Users</a>
             </li>
-            
+
           </ul>
         </nav>
 
 
+
+
         <Switch>
-        
+
           <Route path="/users">
-          <Suspense fallback={<div>Loading.....</div>}>
-            <UsersComponent></UsersComponent>
+            <Suspense fallback={<div>Loading.....</div>}>
+              <UsersComponent></UsersComponent>
             </Suspense>
           </Route>
           <Route path="/viewById">
@@ -49,9 +52,9 @@ function App() {
           <Route path="/sortUsersByTitle">
             <SortByTitle></SortByTitle>
           </Route>
-         <Route path="/sortUsersByBody">
+          <Route path="/sortUsersByBody">
             <SortByBody></SortByBody>
-          </Route> 
+          </Route>
           <Route path="/">
             <Home />
           </Route>

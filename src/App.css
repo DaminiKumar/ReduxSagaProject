@@ -37,6 +37,14 @@
   }
 }  */
 
+body {
+  background-color: lavender;
+  font-family: Arial;
+  text-align: center;
+}
+#banner h1 {
+  padding: 250px;
+}
 .App {
   margin: 5%;
 }
@@ -44,9 +52,7 @@
   margin: 10px;
 }
 .card-body{
-  background-color:yellowgreen;
+  background-color: lightblue;
 }
-.card-title{
-  background-color: tomato;
-}
+
 
