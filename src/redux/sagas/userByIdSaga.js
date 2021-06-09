@@ -9,11 +9,8 @@ function getApi(id) {
          'Content-Type': 'application/json',
 
       }
-   }).then((data) => {
-      data.json().then((resp) => {
-         console.warn("resp", resp)
-      })
-   }).catch((error) => { throw error })
+   }).then(response => response.json())
+   .catch((error) => { throw error })
 }
 
 function* fetchUsers(action) {

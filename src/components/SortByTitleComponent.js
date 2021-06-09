@@ -35,8 +35,8 @@ const SortByTitle = () => {
 
   return (
     <div className="User px-5">
-      <button className="button mr-5 mt-4 mb-5" onClick={() => setSortType('asc')}>Sort By Title in Ascending</button>
-      <button className="button mt-4 mb-5" onClick={() => setSortType('desc')}>Sort By Title in Descending </button>
+      <button  className="button mr-5 mt-4 mb-5" onClick={() => setSortType('asc')}>Sort By Title in Ascending</button>
+      <button  className="button mt-4 mb-5" onClick={() => setSortType('desc')}>Sort By Title in Descending </button>
 
       <table border="2" class="table table-striped">
         <thead>
