@@ -9,6 +9,13 @@ test("ViewByUserId is rendered properly", ()=>{
   expect(viewByUserId).toBe(true) 
 })
 
+test("SortById is rendered properly", ()=>{
+  const component= shallow(<App/>)
+
+  const sortById = component.find("SortById").exists()
+  expect(sortById).toBe(true) 
+})
+
 test("SortByTitle is rendered properly", ()=>{
   const component= shallow(<App/>)
 
