@@ -1,19 +1,19 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 
 const apiUrl = `https://jsonplaceholder.typicode.com/posts`;
-function addUser() {
-   console.log(this.state)
+function addUser(data) {
+
    return fetch(apiUrl, {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: { "Content-type": "application/json; charset=UTF-8" }
-   }).then(response => { console.log(response.json()) })
+      userId: data.userId,
+			title: data.title,
+			body: data.body
+   }).then(response => { console.log(response.data) })
       .catch((error) => { throw error })
 }
 
-function* fetchUsers(action) {
+function* fetchUsers({...data}) {
    try {
-      const users = yield call(addUser);
+      const users = yield call(addUser, data);
       yield put({ type: 'ADD_USER_SUCCESS', users: users });
    } catch (e) {
       yield put({ type: 'ADD_USER_FAILED', message: e.message });

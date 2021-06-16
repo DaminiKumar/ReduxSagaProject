@@ -1,6 +1,10 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
+
+let dispatch;
 const Card = (props) => {
+  dispatch = useDispatch();
   return (
     <div className="card">
       <div className="card-body">
@@ -11,5 +15,6 @@ const Card = (props) => {
     </div>
   )
 }
+
 
 export default Card;

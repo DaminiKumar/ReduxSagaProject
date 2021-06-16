@@ -1,57 +1,70 @@
-import React, { Component } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { Component , useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import { addUser } from '../redux/actions/add';
+import axios from 'axios';
 
 let dispatch;
+let users;
+
 const AddUserComponent = () => {
 
-	/*constructor(props) {
-		super(props)
 
-		this.state = {
-			userId: '',
-			title: '',
-			body: ''
-		}
-	}*/
-
+	const [data, setData] = useState({
+		userId: '',
+		title: '',
+		body: ''
+	})
 	dispatch = useDispatch();
+	users = useSelector(state => state.users.users);
+    console.log("UserList:", users);
 
-	/*submitHandler = (e) => {
+	function handleSubmit  (e) {
 		e.preventDefault()
-		const data = new FormData(event.target);
-		console.log("in handle submit data:", data);
-		const userId = data.get('userId');
-		const title = data.get('title');
-		const body = data.get('body');
-		const userObj = new user(userId, title, body);
-		dispatch(addUser(userObj));
-		
-			
-	}*/
+		//console.log("users::  ", new users("1", "title", "body"));
+		//dispatch(addUser(data));
+
+		axios.post(`https://jsonplaceholder.typicode.com/posts`,{
+			userId: data.userId,
+			title: data.title,
+			body: data.body
+		})
+		.then(res=>{
+			console.log(res.data)
+		})		
+	}
+	function handle(e){
+
+		const newdata = {...data}
+		newdata[e.target.id]= e.target.value
+		setData(newdata)
+		console.log(newdata)
+	}
 
 	return (
 		<div>
-			<form>
+			<form onSubmit={(e)=>handleSubmit(e)}>
 				<div>
 					<input
 						type="text"
-						name="userId"
+						value={data.userId}
 						id="userId"
+						onChange={(e)=>handle(e)}
 					/>
 				</div>
 				<div>
 					<input
 						type="text"
-						name="title"
+						value={data.title}
 						id="title"
+						onChange={(e)=>handle(e)}
 					/>
 				</div>
 				<div>
 					<input
 						type="text"
-						name="body"
+						value={data.body}
 						id="body"
+						onChange={(e)=>handle(e)}
 
 					/>
 				</div>

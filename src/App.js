@@ -9,6 +9,7 @@ import SortByTitle from './components/SortByTitleComponent';
 import SortByBody from './components/SortByBodyComponent';
 import SortByUserId from './components/SortByUserIdComponent';
 import SortById from './components/SortByIdComponent';
+import DeleteUser  from './components/DeleteUserComponent';
 const UsersComponent = lazy(() => import("./components/UsersComponent"));
 
 function App() {
@@ -19,8 +20,11 @@ function App() {
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <ul class="nav nav-tabs">
-            <li class="nav-item">
+          <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/add">Add User</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/users">All Users</a>
@@ -40,6 +44,9 @@ function App() {
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/viewById">Find Users</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/delete">Delete User</a>
+            </li>
 
           </ul>
         </nav>
@@ -49,6 +56,10 @@ function App() {
 
         <Switch>
 
+        <Route path="/add">
+            <AddUserComponent></AddUserComponent>
+          </Route>
+
           <Route path="/users">
             <Suspense fallback={<div>Loading.....</div>}>
               <UsersComponent></UsersComponent>
@@ -56,6 +67,9 @@ function App() {
           </Route>
           <Route path="/viewById">
             <ViewByUserId></ViewByUserId>
+          </Route>
+          <Route path="/delete">
+            <DeleteUser></DeleteUser>
           </Route>
           <Route path="/sortUsersById">
             <SortById></SortById>

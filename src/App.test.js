@@ -13,7 +13,8 @@ test("SortById is rendered properly", ()=>{
   const component= shallow(<App/>)
 
   const sortById = component.find("SortById").exists()
-  expect(sortById).toBe(true) 
+  expect(sortByIda
+    ).toBe(true) 
 })
 
 test("SortByTitle is rendered properly", ()=>{

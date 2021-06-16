@@ -3,6 +3,7 @@ import userSaga from './userSaga'
 import addSaga from './addSaga'
 import userByIdSaga from './userByIdSaga'
 import sortUsersSaga from './sortUsersSaga'
+import deleteUserSaga from './deleteUserSaga'
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     addSaga(),
     userByIdSaga(),
     sortUsersSaga(),
+    deleteUserSaga(),
   ])
 }

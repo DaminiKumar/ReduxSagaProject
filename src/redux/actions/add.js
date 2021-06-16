@@ -1,7 +1,7 @@
 import * as type from '../types';
 
-export function addUser() {
+export function addUser(data) {
   return {
-    type: type.ADD_USER_REQUESTED,
+    type: type.ADD_USER_REQUESTED, data
   }
 }
