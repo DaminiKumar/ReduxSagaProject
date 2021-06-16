@@ -1,4 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
+import {deleteUser} from '../actions/deleteUser'
 
 function getApi(id) {
    console.log("id deleted: ", id);
@@ -18,7 +19,7 @@ function getApi(id) {
 function* fetchUsers(action) {
    try {
       const users = yield call(getApi, action.id);
-      yield put({ type: 'DELETE_USERBYID_SUCCESS', users: users });
+      yield put(deleteUser(action.id));
    } catch (e) {
       yield put({ type: 'DELETE_USERBYID_FAILED', message: e.message });
    }

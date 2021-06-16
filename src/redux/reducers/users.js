@@ -61,23 +61,11 @@ export default function users(state = initialState, action) {
         loading: false,
         error: action.message,
       }
-
-    case type.DELETE_USERBYID_REQUESTED:
-      return {
-        ...state,
-        loading: true,
-      }
     case type.DELETE_USERBYID_SUCCESS:
       return {
         ...state,
         loading: false,
         users: state.users.filter(users => users.id !== action.id),
-      }
-    case type.DELETE_USERBYID_FAILED:
-      return {
-        ...state,
-        loading: false,
-        error: action.message,
       }
 
     default:

@@ -7,7 +7,7 @@ let dispatch;
 const DeleteUser = () => {
   dispatch = useDispatch();
   let users = useSelector(state => state.users.users);
-  console.log("users: ", users);
+  //console.log("users: ", users);
 
   React.useEffect(() => {
     Users()
@@ -69,7 +69,7 @@ function deleteUserById(event, id) {
   event.preventDefault();
   console.log("id", id);
   dispatch(deleteUser(id));
-  alert("User deleted successfully");
+  //alert("User deleted successfully");
 }
 
 export default DeleteUser;
