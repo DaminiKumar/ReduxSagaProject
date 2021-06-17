@@ -11,7 +11,7 @@ function getApi(id) {
       }
    }).then((data)=>{
       data.json().then((res)=>{
-         console.log("resp", res)
+         console.warn("resp", res)
       })
    })
 }
@@ -21,12 +21,12 @@ function* fetchUsers(action) {
       const users = yield call(getApi, action.id);
       yield put(deleteUser(action.id));
    } catch (e) {
-      yield put({ type: 'DELETE_USERBYID_FAILED', message: e.message });
+   
    }
 }
 
 function* deleteUserSaga() {
-   yield takeEvery('DELETE_USERBYID_REQUESTED', fetchUsers);
+   yield takeEvery('DELETE_USERBYID_SUCCESS', fetchUsers);
 }
 
 export default deleteUserSaga;

@@ -23,7 +23,7 @@ const DeleteUser = () => {
   }
 
   return (
-    <div className="User px-5">
+    <div className="User px-5 mt-5">
       <table border="2" class="table table-striped">
         <thead>
           <tr>
