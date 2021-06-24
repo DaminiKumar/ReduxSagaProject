@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
 import {deleteUser} from '../actions/deleteUser'
 
-function getApi(id) {
+function deleteApi(id) {
    console.log("id deleted: ", id);
    return fetch(`https://jsonplaceholder.typicode.com/posts/${id}` , {
       method: 'DELETE',
@@ -18,7 +18,7 @@ function getApi(id) {
 
 function* fetchUsers(action) {
    try {
-      const users = yield call(getApi, action.id);
+      const users = yield call(deleteApi, action.id);
       yield put(deleteUser(action.id));
    } catch (e) {
    

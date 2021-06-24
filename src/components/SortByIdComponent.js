@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useCallback} from 'react';
+import React, { useState , useCallback} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { sortUsers } from '../redux/actions/sortUsers';
 import Paginations from "./Pagination";
@@ -8,24 +8,6 @@ const SortById = () => {
   const dispatch = useDispatch();
   const users = useSelector(state => state.users.users);
   console.log("SortingUsers: ", users);
-
-  const [currentPage, setCurrentPage] = useState(1);
-  let NUM_OF_RECORDS = users.length;
-  let LIMIT = 5;
-
-  const onPageChanged = useCallback(
-    (event, page) => {
-      event.preventDefault();
-      setCurrentPage(page);
-    },
-    [setCurrentPage]
-  );
-  currentData = users.slice(
-    (currentPage - 1) * LIMIT,
-    (currentPage - 1) * LIMIT + LIMIT
-  );
-
-
 
   React.useEffect(() => {
     Users()
@@ -66,15 +48,7 @@ const SortById = () => {
           {renderTableData(users)}
         </tbody>
       </table>
-      <div className="pagination-wrapper">
-          <Paginations
-            totalRecords={NUM_OF_RECORDS}
-            pageLimit={LIMIT}
-            pageNeighbours={2}
-            onPageChanged={onPageChanged}
-            currentPage={currentPage}
-          />
-          </div>
+      
     </div>
 
   )
@@ -82,7 +56,7 @@ const SortById = () => {
 
 function renderTableData(users) {
   console.log("userList: ", users);
-  return currentData.map((user, index) => {
+  return users.map((user, index) => {
     //destructuring
     const { id, userId, title, body } = user
     return (
